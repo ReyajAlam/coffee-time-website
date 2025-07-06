@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Time</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f0eb;
+      color: #3c2f2f;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: transparent !important;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    .hero {
+      background: url('https://greattelangaana.com/english/wp-content/uploads/2024/05/coffee.jpg') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+      padding: 0 5%;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      max-width: 600px;
+    }
+    .hero h1 span {
+      color: #f1c40f;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 500px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px #848381;
+      transition: all 0.3s ease;
+      padding: 30px 20px 10px;
+      position: relative;
+      text-align: left;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    .product-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+    .cart-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #6f4e37;
+      font-size: 20px;
+    }
+    .cart-btn:hover {
+      background-color: #6f4e37;
+      color: #fff;
+    }
+    .btn-shop {
+      background-color: #6f4e37;
+      color: white;
+      padding: 10px 24px;
+    }
+    .btn-shop:hover {
+      background-color: #5a3e2d;
+    }
+    .testimonial-section {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+      padding: 80px 0;
+      color: white;
+      text-align: center;
+    }
+    .testimonial-card {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 12px;
+      color: #fff;
+      margin: 15px;
+    }
+    .view-more-btn {
+      position: absolute;
+      top: 175px;
+      right: 60px;
+      background-color: #5a3e2d;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .delivery-section {
+      background: url('https://blog.bozemancvb.com/hs-fs/hubfs/CVB_coffee-roasters-blog2-1.jpg?width=2894&name=CVB_coffee-roasters-blog2-1.jpg') no-repeat center center/cover;
+      background-size: cover;
+      padding: 100px 5%;
+      color: #f5f5f5;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .delivery-section .content {
+      max-width: 500px;
+    }
+    .delivery-section h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #f8e8d0;
+      position: relative;
+      display: inline-block;
+    }
+    .delivery-section h2::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 5px;
+      background-color: #ebd0a3;
+      margin-top: 10px;
+    }
+    .delivery-section p {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      color: #f4e5d2;
+    }
+    .about-section {
+      background-color: #f2e7dc;
+      padding: 35px 20px;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .about-section h2 span {
+      color: #a05030;
+    }
+    .about-section p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #3c2f2f;
+    }
+    .about-section .team-signature {
+      margin-top: 30px;
+      color: #a05030;
+      font-weight: 500;
+    }
+    .choose-section {
+      background-color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .choose-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #3c2f2f;
+    }
+    .choose-section h2 span {
+      color: #a05030;
+    }
+    .choose-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 100px;
+    }
+    .feature-box {
+      max-width: 240px;
+      text-align: center;
+    }
+    .feature-box img {
+      width: 170px;
+      height: 130px;
+      margin-bottom: 15px;
+    }
+    .feature-box h5 {
+      font-weight: 600;
+      color: #3c2f2f;
+    }
+    .feature-box p {
+      color: #5a4a42;
+      font-size: 0.95rem;
+    }
+    .product-highlight {
+      background-color: #f8f4ef;
+      padding: 60px 20px;
+    }
+    .product-highlight img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .product-highlight h2 {
+      font-size: 2rem;
+      color: #a96338;
+      font-weight: bold;
+    }
+    .product-highlight p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #3c2f2f;
+    }
+    .product-highlight strong {
+      color: #7d4a2d;
+    }
+    .product-highlight .text-muted {
+      font-size: 0.95rem;
+      color: #6d5243;
+    }
+  .testimonial-section {
+      background: url('https://cdn.prod.website-files.com/623ba40662d1081c47631813/64acaa6395d96a6e7e01d987_BlogEDM%20images%20-%201600x1000px.png') no-repeat center center/cover;
+      padding: 30px 10px 10px 20px;
+      color: #fff;
+      text-align: center;
+    }
+    .testimonial-section h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .testimonial-card {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 16px;
+      padding:30px 20px;
+      color: #fff;
+      height: 230px; 
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      margin-bottom: 20px;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+    .testimonial-card i {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #f5d398;
+    }
+    .testimonial-card .author {
+      margin-top: 15px ;
+      font-weight: bold;
+      color: #f1c67b;
+    }
+    .testimonial-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .blog-section {
+      background-color: #f4f0eb;
+      padding: 40px 0px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #3c2f2f;
+    }
+
+    .latest-blog-section {
+      background-color: #f4f0eb;
+      padding: 10px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #3c2f2f;
+    }
+
+    .latest-blog-section .section-heading {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #3c2f2f;
+    }
+
+    .latest-blog-section .section-heading span {
+      color: #a05030;
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .blog-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #3c2f2f;
+    }
+
+    .blog-text {
+      font-size: 1rem;
+      color: #5a4a42;
+      line-height: 1.6;
+    }
+    .footer-section {
+      background-color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      color: #3c2f2f;
+    }
+    .footer-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #7d2f1e;
+    }
+    .footer-subtitle {
+      font-weight: 500;
+      color: #3c2f2f;
+    }
+    .footer-description {
+      color: #a05030;
+      font-size: 0.95rem;
+    }
+    .footer-contact {
+      color: #3c2f2f;
+      font-size: 0.95rem;
+    }
+    .footer-contact a {
+      color: #3c2f2f;
+      text-decoration: none;
+    }
+    .footer-links a {
+      color: #80331a;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+      color: #a05030;
+    }
+    .footer-rights {
+      font-size: 0.95rem;
+      color: #3c2f2f;
+    }
+    .footer-logo {
+      width: 90px;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-5">
+    <a class="navbar-brand text-white" href="#">coffee <strong>time</strong></a>
+    <div class="ms-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Menu</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1 class="fw-bold">Experience <span>the</span> Art of Coffee.</h1>
+      <p class="lead mt-3">Explore our premium selection of handcrafted coffee beans, brewed to perfection.</p>
+      <a class="btn btn-shop mt-4" href="#">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="text-center py-5 position-relative">
+    <h2 class="mb-3">— Best <strong>Sellers</strong> —</h2>
+    <p>Discover our most <strong>popular blends</strong> that are loved by coffee enthusiasts <strong>worldwide</strong>.</p>
+
+    <div class="container mt-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="https://cdn.pixabay.com/photo/2016/11/29/02/10/caffeine-1866758_1280.jpg" alt="Espresso" class="product-img">
+            <h5>Espresso Blend</h5>
+            <p>Bold, rich, and packed with flavor. Perfect for those who crave an intense coffee experience.</p>
+            <p><strong>$15.99 / 12 oz</strong></p>
+            <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="https://images.pexels.com/photos/13510336/pexels-photo-13510336.jpeg" alt="House Blend" class="product-img">
+            <h5>House Blend</h5>
+            <p>A smooth and balanced blend ideal for every occasion. Notes of caramel and chocolate.</p>
+            <p><strong>$12.99 / 12 oz</strong></p>
+            <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="https://images.pexels.com/photos/16580979/pexels-photo-16580979.jpeg" alt="Cold Brew" class="product-img">
+            <h5>Cold Brew Concentrate</h5>
+            <p>Refreshing, smooth, and ready-to-drink. Ideal for hot days or a quick pick-me-up.</p>
+            <p><strong>$18.99 / 16 oz</strong></p>
+            <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <button class="view-more-btn"><i class="fas fa-arrow-right"></i> View More</button>
+  </section>
+
+  <!-- Delivery Section -->
+  <section class="delivery-section">    
+    <div class="content">
+      <h2>Coffee Delivered<br>to Your Door.</h2>
+      <p>Join our Coffee Club and get your favorite blends delivered to you on your schedule. Choose from weekly, bi-weekly, or monthly options.</p>
+      <a class="btn btn-shop" href="#">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h2>About Us <span>Our Story</span></h2>
+    <p>At <strong>Coffee Time</strong>, we believe that every cup of coffee tells a story. From the sun-drenched hills of Ethiopia to the farms in Colombia, we source the highest-quality beans from around the globe. Our mission is simple: to provide exceptional coffee experiences for every sip.</p>
+    <p>Whether you're a seasoned espresso aficionado or a casual coffee drinker, we have a blend that's perfect for you. Our roasting process ensures that each batch is roasted to perfection, bringing out the unique flavors and aromas that make coffee such an exciting beverage.</p>
+    <p class="team-signature">Coffee Time Team.....</p>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="choose-section">
+    <h2>Why <span>Choose Us?</span></h2>
+    <div class="choose-features">
+      <div class="feature-box">
+        <img src="https://image.benq.com/is/image/benqco/icon_eco-friendly?$ResponsivePreset$&wid=227&dpr=off" alt="Sustainably Sourced">
+        <h5>Sustainably Sourced</h5>
+        <p>We partner with farmers who use ethical, sustainable farming practices.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.freepik.com/512/5450/5450261.png" alt="Freshly Roasted">
+        <h5>Freshly Roasted</h5>
+        <p>Our beans are roasted in small batches to ensure maximum freshness and flavor.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRk-NkdpvPp0_Nkh7R2XbmL8u1S57CiFPocFBOnXWHdbfF83yVo" alt="Expertly Crafted">
+        <h5>Expertly Crafted</h5>
+        <p>Each blend is designed to highlight the best qualities of the beans.</p>
+      </div>
+    </div>
+  </section>
+   <!-- Product Highlight Section -->
+  <section class="product-highlight">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+          <img src="https://img.freepik.com/premium-photo/cup-coffee-with-latte-art-it_25996-3503.jpg" alt="Espresso Coffee Cup">
+        </div>
+        <div class="col-md-6">
+          <h2>Espresso Blend</h2>
+          <p><strong>Bold, rich, and smooth</strong> this espresso blend is perfect for those who enjoy a full-bodied, flavorful cup of coffee.</p>
+          <p>Carefully selected beans from Central and South America, roasted to a deep brown, create a satisfying and intense espresso shot.</p>
+          <p><strong>Best For:</strong> Espresso, Cappuccino, Lattes</p>
+          <p class="text-muted">
+            <strong>Details:</strong><br>
+            - 100% Arabica Beans<br>
+            - Roasted in small batches for freshness<br>
+            - Available in 12 oz, 1 lb, and 5 lb options<br>
+            - Price: $15.99 / 12 oz
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="text-white text-center mb-5">What Our Customer Says</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-icon"><i class="fas fa-user-circle"></i></div>
+            <div class="testimonial-content">
+              <p>"The House Blend is my go-to every morning! Smooth, never bitter. It's the perfect way to start my day."</p>
+              <div class="author">Emily R.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-icon"><i class="fas fa-user-circle"></i></div>
+            <div class="testimonial-content">
+              <p>"I love the espresso blend! It’s bold but not overpowering, and it makes the best lattes."</p>
+              <div class="author">James T.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card">
+            <div class="testimonial-icon"><i class="fas fa-user-circle"></i></div>
+            <div class="testimonial-content">
+              <p>"The subscription service is a game-changer! Fresh coffee delivered right to my door."</p>
+              <div class="author">Sarah M.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Blog Section -->
+  <section class="latest-blog-section">
+    <div class="container">
+      <h2 class="section-heading">Read Our <span>Latest Blog</span></h2>
+      <div class="row justify-content-center g-4">
+        <!-- Blog Item 1 -->
+        <div class="col-md-4 text-start">
+          <img src="https://tektradesulamerica.com.br/wp-content/uploads/2024/02/Untitled-design-2-1.jpg" class="blog-img" alt="Coffee Land">
+          <h5 class="blog-title">Coffee Land</h5>
+          <p class="blog-text">Coffee Land blog explores coffee culture, brewing tips, and reviews for passionate coffee enthusiasts.</p>
+        </div>
+        <!-- Blog Item 2 -->
+        <div class="col-md-4 text-start">
+          <img src="https://cdn.shopify.com/s/files/1/0895/8613/9434/files/2148937292_480x480.jpg?v=1725950652" class="blog-img" alt="Coffee Beans">
+          <h5 class="blog-title">Coffee Beans</h5>
+          <p class="blog-text">Coffee Beans blog offers expert insights, brewing tips, and reviews for coffee lovers & aficionados.</p>
+        </div>
+        <!-- Blog Item 3 -->
+        <div class="col-md-4 text-start">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSK_uXvBojUgEHLIV9cvnYja82V5UOHckpM0hrNX3wMHJxUl1w2" class="blog-img" alt="Coffee Tips">
+          <h5 class="blog-title">Coffee Tips</h5>
+          <p class="blog-text">Coffee Tips blog shares expert advice, brewing techniques, and flavor exploration for coffee enthusiasts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section py-5">
+    <div class="container text-center">
+      <h5 class="footer-title mb-2">Contact Us:</h5>
+      <p class="footer-subtitle mb-1">We'd Love to Hear from You!</p>
+      <p class="footer-description mb-4">
+        Have a question about our products, your order, or anything else? Reach out to us below:
+      </p>
+
+      <p class="footer-contact mb-4">
+        Email: <a href="mailto:support@coffeetime.com">support@coffeetime.com</a>   |  
+        Phone: 1-800-123-4567   |  
+        Location: 123 Coffee Street, Brewtown, USA
+      </p>
+
+      <div class="row align-items-center justify-content-between mt-4">
+        <div class="col-md-10 text-center mb-3 mb-md-0">
+          <div class="footer-links mb-2">
+            <a href="#">Menu</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <a href="#">Contact Us</a>
+          </div>
+          <p class="footer-rights mb-0">allrightsreservedcoffeetime.com</p>
+        </div>
+        <div class="col-md-2 text-md-end text-center">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTeO_ijWVTRWb7Val4gkLrSXTouamqJjYmt4yRoIHhhYPdkIGh" alt="Coffee Time Logo" class="footer-logo">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Section Animation
+    gsap.from(".hero h1", { duration: 1.2, y: -100, opacity: 0, ease: "back.out(1.7)" });
+    gsap.from(".hero p", { duration: 1.2, y: 50, opacity: 0, delay: 0.3, ease: "power2.out" });
+    gsap.from(".btn-shop", { duration: 1, scale: 0.5, opacity: 0, delay: 0.6, ease: "elastic.out(1, 0.3)" });
+
+    // Best Sellers Animation
+    gsap.utils.toArray(".product-card").forEach((card, index) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        },
+        y: 100,
+        opacity: 0,
+        rotation: -5,
+        duration: 1,
+        delay: index * 0.2,
+        ease: "power3.out"
+      });
+    });
+
+    // Delivery Section Animation
+    gsap.from(".delivery-section .content", {
+      scrollTrigger: {
+        trigger: ".delivery-section",
+        start: "top 75%"
+      },
+      x: -200,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+    gsap.from(".delivery-section .btn-shop", {
+      scrollTrigger: {
+        trigger: ".delivery-section",
+        start: "top 75%"
+      },
+      scale: 0,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: "back.out(1.7)"
+    });
+
+    // About Section Animation
+    gsap.from(".about-section h2", {
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 85%"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power2.out"
+    });
+    gsap.from(".about-section p", {
+      scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 85%"
+      },
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+
+    // Why Choose Us Animation
+    gsap.from(".feature-box", {
+      scrollTrigger: {
+        trigger: ".choose-section",
+        start: "top 85%"
+      },
+      y: 100,
+      opacity: 0,
+      rotation: 5,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power3.out"
+    });
+
+    // Product Highlight Animation
+    gsap.from(".product-highlight .col-md-6:first-child img", {
+      scrollTrigger: {
+        trigger: ".product-highlight",
+        start: "top 85%"
+      },
+      scale: 0.8,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+    gsap.from(".product-highlight .col-md-6:last-child", {
+      scrollTrigger: {
+        trigger: ".product-highlight",
+        start: "top 85%"
+      },
+      x: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+
+   // Testimonial Section Animation
+    gsap.from(".testimonial-section h2", {
+      scrollTrigger: {
+        trigger: ".testimonial-section",
+        start: "top 85%"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power2.out"
+    });
+    gsap.from(".testimonial-card", {
+      scrollTrigger: {
+        trigger: ".testimonial-section",
+        start: "top 85%"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "back.out(1.7)"
+    });
+
+    // Latest Blog Animation
+    gsap.from(".latest-blog-section .section-heading", {
+      scrollTrigger: {
+        trigger: ".latest-blog-section",
+        start: "top 85%"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power2.out"
+    });
+    gsap.from(".latest-blog-section .col-md-4", {
+      scrollTrigger: {
+        trigger: ".latest-blog-section",
+        start: "top 85%"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power3.out"
+    });
+
+    // Footer Animation
+    gsap.from(".footer-section", {
+      scrollTrigger: {
+        trigger: ".footer-section",
+        start: "top 95%"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
