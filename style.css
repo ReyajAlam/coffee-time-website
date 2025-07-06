@@ -1,0 +1,424 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f0eb;
+  color: #3c2f2f;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: transparent !important;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.hero {
+  background: url('https://greattelangaana.com/english/wp-content/uploads/2024/05/coffee.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  padding: 0 5%;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  max-width: 600px;
+}
+
+.hero h1 span {
+  color: #f1c40f;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 500px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #848381;
+  transition: all 0.3s ease;
+  padding: 30px 20px 10px;
+  position: relative;
+  text-align: left;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: block;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.cart-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #6f4e37;
+  font-size: 20px;
+}
+
+.cart-btn:hover {
+  background-color: #6f4e37;
+  color: #fff;
+}
+
+.btn-shop {
+  background-color: #6f4e37;
+  color: white;
+  padding: 10px 24px;
+}
+
+.btn-shop:hover {
+  background-color: #5a3e2d;
+}
+
+.testimonial-section {
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+  padding: 80px 0;
+  color: white;
+  text-align: center;
+}
+
+.testimonial-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 12px;
+  color: #fff;
+  margin: 15px;
+}
+
+.view-more-btn {
+  position: absolute;
+  top: 175px;
+  right: 60px;
+  background-color: #5a3e2d;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.delivery-section {
+  background: url('https://blog.bozemancvb.com/hs-fs/hubfs/CVB_coffee-roasters-blog2-1.jpg?width=2894&name=CVB_coffee-roasters-blog2-1.jpg') no-repeat center center/cover;
+  background-size: cover;
+  padding: 100px 5%;
+  color: #f5f5f5;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.delivery-section .content {
+  max-width: 500px;
+}
+
+.delivery-section h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f8e8d0;
+  position: relative;
+  display: inline-block;
+}
+
+.delivery-section h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 5px;
+  background-color: #ebd0a3;
+  margin-top: 10px;
+}
+
+.delivery-section p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  color: #f4e5d2;
+}
+
+.about-section {
+  background-color: #f2e7dc;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-section h2 span {
+  color: #a05030;
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3c2f2f;
+}
+
+.about-section .team-signature {
+  margin-top: 30px;
+  color: #a05030;
+  font-weight: 500;
+}
+
+.choose-section {
+  background-color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.choose-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #3c2f2f;
+}
+
+.choose-section h2 span {
+  color: #a05030;
+}
+
+.choose-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+
+.feature-box {
+  max-width: 240px;
+  text-align: center;
+}
+
+.feature-box img {
+  width: 170px;
+  height: 130px;
+  margin-bottom: 15px;
+}
+
+.feature-box h5 {
+  font-weight: 600;
+  color: #3c2f2f;
+}
+
+.feature-box p {
+  color: #5a4a42;
+  font-size: 0.95rem;
+}
+
+.product-highlight {
+  background-color: #f8f4ef;
+  padding: 60px 20px;
+}
+
+.product-highlight img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.product-highlight h2 {
+  font-size: 2rem;
+  color: #a96338;
+  font-weight: bold;
+}
+
+.product-highlight p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #3c2f2f;
+}
+
+.product-highlight strong {
+  color: #7d4a2d;
+}
+
+.product-highlight .text-muted {
+  font-size: 0.95rem;
+  color: #6d5243;
+}
+
+.testimonial-section {
+  background: url('https://cdn.prod.website-files.com/623ba40662d1081c47631813/64acaa6395d96a6e7e01d987_BlogEDM%20images%20-%201600x1000px.png') no-repeat center center/cover;
+  padding: 30px 10px 10px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.testimonial-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  padding: 30px 20px;
+  color: #fff;
+  height: 230px;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card i {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #f5d398;
+}
+
+.testimonial-card .author {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #f1c67b;
+}
+
+.testimonial-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.blog-section {
+  background-color: #f4f0eb;
+  padding: 40px 0px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #3c2f2f;
+}
+
+.latest-blog-section {
+  background-color: #f4f0eb;
+  padding: 10px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #3c2f2f;
+}
+
+.latest-blog-section .section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #3c2f2f;
+}
+
+.latest-blog-section .section-heading span {
+  color: #a05030;
+}
+
+.blog-img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #3c2f2f;
+}
+
+.blog-text {
+  font-size: 1rem;
+  color: #5a4a42;
+  line-height: 1.6;
+}
+
+.footer-section {
+  background-color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  color: #3c2f2f;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #7d2f1e;
+}
+
+.footer-subtitle {
+  font-weight: 500;
+  color: #3c2f2f;
+}
+
+.footer-description {
+  color: #a05030;
+  font-size: 0.95rem;
+}
+
+.footer-contact {
+  color: #3c2f2f;
+  font-size: 0.95rem;
+}
+
+.footer-contact a {
+  color: #3c2f2f;
+  text-decoration: none;
+}
+
+.footer-links a {
+  color: #80331a;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #a05030;
+}
+
+.footer-rights {
+  font-size: 0.95rem;
+  color: #3c2f2f;
+}
+
+.footer-logo {
+  width: 90px;
+  height: auto;
+}
